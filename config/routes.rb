@@ -3,6 +3,8 @@ YourResume::Application.routes.draw do
 
   resources :user_sessions, only: :new
 
+  get "linkedin_authentication/callback"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

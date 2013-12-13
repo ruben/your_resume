@@ -1,5 +1,7 @@
 module LinkedIn
+  # TODO Add class method to avoid the need of instantiation
   class AuthorizationUrl
+    # TODO Replace string values with constants
     def initialize
       @url = "https://www.linkedin.com/uas/oauth2/authorization"
       @params = {

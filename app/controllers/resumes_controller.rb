@@ -1,7 +1,6 @@
 class ResumesController < ApplicationController
   def show
-    access_token = LinkedIn::RequestAccessToken.fetch(resume_params[:code])
-    render json: access_token
+    render json: {"expires_in" => 5184000, "access_token" => "AQXdSP_W41_UPs5ioT_t8HESyODB4FqbkJ8LrV_5mff4gPODzOYR"}
   end
 
   private
