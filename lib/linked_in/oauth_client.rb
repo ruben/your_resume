@@ -1,8 +1,8 @@
 require 'rest_client'
 
+# TODO Refactor
 module LinkedIn
   class OauthClient
-
     def self.authorize authorization_code
       oauth_client = new
       access_token = oauth_client.fetch_access_token  authorization_code
@@ -14,7 +14,7 @@ module LinkedIn
     end
 
     def get_user_info access_token
-      RestClient.get "https://api.linkedin.com/v1/people/~?format=json"
+      RestClient.get user_profile_url
     end
 
     def fetch_access_token authorization_code
@@ -23,12 +23,22 @@ module LinkedIn
 
     ## Gets authorization response as json
     def get_access_token authorization_code
-      RestClient.post ACCESS_TOKEN_URL,
+      RestClient.post access_token_url,
                       grant_type: "authorization_code",
                       code: authorization_code,
                       redirect_uri: REDIRECT_URI,
                       client_id: API_KEY,
                       client_secret: SECRET_KEY
+    end
+
+    private
+
+    def access_token_url
+      'https://www.linkedin.com/uas/oauth2/accessToken'
+    end
+
+    def user_profile_url
+      "https://api.linkedin.com/v1/people/~?format=json"
     end
   end
 end
