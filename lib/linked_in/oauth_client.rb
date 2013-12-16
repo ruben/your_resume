@@ -6,7 +6,7 @@ module LinkedIn
     def self.authorize authorization_code
       oauth_client = new
       access_token = oauth_client.fetch_access_token  authorization_code
-      user_info = oauth_client.fetch_user_info access_token
+      user_info = oauth_client.fetch_user_info access_token["access_token"]
       {user_info: user_info, access_token: access_token}
     end
 
@@ -19,7 +19,10 @@ module LinkedIn
     end
 
     def get_user_info access_token
-      RestClient.get user_profile_url
+      RestClient.get user_profile_url,
+                     params:
+                      {oauth2_access_token: access_token,
+                      format: "json"}
     end
 
     def fetch_access_token authorization_code
@@ -31,7 +34,7 @@ module LinkedIn
       RestClient.post access_token_url,
                       grant_type: "authorization_code",
                       code: authorization_code,
-                      redirect_uri: REDIRECT_URI,
+                      redirect_uri: redirect_uri,
                       client_id: API_KEY,
                       client_secret: SECRET_KEY
     end
@@ -47,15 +50,20 @@ module LinkedIn
     end
 
     def user_profile_url
-      "https://api.linkedin.com/v1/people/~?format=json"
+      "https://api.linkedin.com/v1/people/~"
     end
 
     def authorize_params
       {response_type: "code",
           client_id: "0sskhvc5i3a3",
+          scope: "r_basicprofile",
           state: "5c3dfc38244eeea97e425c8ae79c6a13f08c82182f03d3e29b2b5534ae1c78ad2595e9f253fad9ec4429dda90412d64166fafdef56ac8c8be76e0c0487c94031",
-          redirect_uri: REDIRECT_URI,
+          redirect_uri: redirect_uri,
       }
+    end
+
+    def redirect_uri
+      'http://localhost:3000/linkedin_authorization/callback'
     end
   end
 end

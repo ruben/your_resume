@@ -5,6 +5,8 @@ YourResume::Application.routes.draw do
 
   get "linkedin_authorization/callback"
 
+  get "linkedin_authorization/authorize"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
