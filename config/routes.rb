@@ -1,4 +1,8 @@
 YourResume::Application.routes.draw do
+  root to: "resumes#show"
+
+  devise_for :users
+
   get "resumes/show"
 
   resources :user_sessions, only: :new

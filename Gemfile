@@ -36,6 +36,10 @@ gem 'rest-client', '~> 1.6.7'
 
 gem 'flexmock', '~> 1.3.2'
 
+gem 'devise'
+
+gem 'mocha', require: false
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

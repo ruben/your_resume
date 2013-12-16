@@ -1,7 +1,7 @@
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
-require 'flexmock/test_unit'
+require "mocha/setup"
 
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
@@ -13,4 +13,13 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  class ActionController::TestCase
+    include Devise::TestHelpers
+  end
+
+  def authorization_info uid, email
+    {user_info: {uid: uid, email: email},
+     access_token: {expires_in: 12345, access_token: "ACCESS_TOKEN"}}
+  end
+
 end

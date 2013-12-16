@@ -1,7 +1,11 @@
 TODO
-* Devise integration testing. User must be logged in after authorization.
+* Devise integration testing. User must be logged in after authorization
+* Redirects to "/" instead of "resumes/show"
+* Refactor routes
 
 DONE
+* Install devise
+* Substitute flexmock by mocka
 * User id in authorization_info
 * Move UserSessionsController#new to LinkedInAuthenticationController#autorize.
 * OauthClient must return user_id and access_token.
