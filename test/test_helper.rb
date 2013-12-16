@@ -13,13 +13,16 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
-  class ActionController::TestCase
-    include Devise::TestHelpers
-  end
 
   def authorization_info uid, email
     {user_info: {uid: uid, email: email},
      access_token: {expires_in: 12345, access_token: "ACCESS_TOKEN"}}
   end
 
+end
+
+# Fixes error 'NoMethodError: undefined method `env’ for nil:NilClass'.
+# Found in http://rubyonrailsthrissur.wordpress.com/2012/01/05/nomethoderror-undefined-method-env-for-nilnilclass/
+class ActionController::TestCase
+  include Devise::TestHelpers
 end

@@ -1,9 +1,11 @@
 TODO
-* Devise integration testing. User must be logged in after authorization
-* Redirects to "/" instead of "resumes/show"
+* Test new user creation
+* Test authorization error
 * Refactor routes
 
 DONE
+* Redirects to "/" instead of "resumes/show"
+* Devise integration testing. User must be logged in after authorization
 * Install devise
 * Substitute flexmock by mocka
 * User id in authorization_info

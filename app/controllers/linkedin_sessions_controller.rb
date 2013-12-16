@@ -1,0 +1,3 @@
+class LinkedinSessionsController < ApplicationController
+
+end

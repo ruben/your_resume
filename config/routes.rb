@@ -5,11 +5,11 @@ YourResume::Application.routes.draw do
 
   get "resumes/show"
 
-  resources :user_sessions, only: :new
-
   get "linkedin_authorization/callback"
 
-  get "linkedin_authorization/authorize"
+  get "linkedin_authorization/authorize", as: 'linkedin_authorize'
+
+  get "linkedin_sessions/new"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
