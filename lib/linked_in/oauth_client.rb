@@ -50,7 +50,7 @@ module LinkedIn
     end
 
     def user_profile_url
-      "https://api.linkedin.com/v1/people/~"
+      "https://api.linkedin.com/v1/people/~:(id)"
     end
 
     def authorize_params
