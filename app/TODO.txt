@@ -1,0 +1,7 @@
+TODO
+* Manual testing of LinkedInAuthenticatioController#authorize (returns user_id and access_token).
+* Devise integration testing. User must be logged in after authorization.
+
+DONE
+* Move UserSessionsController#new to LinkedInAuthenticationController#autorize.
+* OauthClient must return user_id and access_token.

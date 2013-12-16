@@ -1,0 +1,2 @@
+module LinkedinAuthorizationHelper
+end
