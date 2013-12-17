@@ -1,12 +1,15 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :trackable
 
   def self.from_authorization_info authorization_info
-    unless user = User.where('uid=?', authorization_info[:user_info][:uid]).first
-      user = User.create(uid: authorization_info[:user_info][:uid], email: authorization_info[:user_info][:email])
+    user_info = authorization_info[:user_info]
+    unless user = User.where('uid=?', user_info.uid).first
+      user = User.create(uid: user_info.uid,
+                         email: user_info.email,
+                         first_name: user_info.first_name,
+                         last_name: user_info.last_name)
     end
     user
   end

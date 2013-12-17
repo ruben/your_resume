@@ -15,14 +15,15 @@ module LinkedIn
     end
 
     def fetch_user_info access_token
-      JSON.parse get_user_info access_token
+      OauthUserInfo.new(JSON.parse get_user_info access_token)
     end
 
     def get_user_info access_token
-      RestClient.get user_profile_url,
+      user_info = RestClient.get user_profile_url,
                      params:
                          {oauth2_access_token: access_token,
                           format: "json"}
+      user_info
     end
 
     def fetch_access_token authorization_code
@@ -50,13 +51,13 @@ module LinkedIn
     end
 
     def user_profile_url
-      "https://api.linkedin.com/v1/people/~:(id)"
+      "https://api.linkedin.com/v1/people/~:(id,email-address,first-name,last-name)"
     end
 
     def authorize_params
       {response_type: "code",
        client_id: "0sskhvc5i3a3",
-       scope: "r_basicprofile",
+       scope: "r_basicprofile r_emailaddress",
        state: "5c3dfc38244eeea97e425c8ae79c6a13f08c82182f03d3e29b2b5534ae1c78ad2595e9f253fad9ec4429dda90412d64166fafdef56ac8c8be76e0c0487c94031",
        redirect_uri: redirect_uri,
       }

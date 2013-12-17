@@ -14,9 +14,20 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 
+  class MockUserInfo
+    attr_accessor :uid, :first_name, :last_name, :email
+
+    def initialize hash
+      hash.each do |key, value|
+        send("#{key}=", value)
+      end
+    end
+  end
+
   def authorization_info uid, email
-    {user_info: {uid: uid, email: email},
-     access_token: {expires_in: 12345, access_token: "ACCESS_TOKEN"}}
+    user_info = MockUserInfo.new(uid: uid, first_name: "Rubén", last_name: "Gil", email: email)
+    {user_info: user_info,
+     access_token: {"expires_in" => 12345, "access_token" => "ACCESS_TOKEN"}}
   end
 
 end

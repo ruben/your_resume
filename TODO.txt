@@ -1,9 +1,20 @@
 TODO
-* Test new user creation
+
+* Test redirected_to in linkedin_authorization_controller
+* Test user_signed_in? in linked_in_authorization_controller
 * Test authorization error
 * Refactor routes
+* Before filter authenticate_user! in resumes/show
+* Map users#new_user_session to 'Login with linked in page'
+* I18n.enforce_available_locales message
 
 DONE
+* Turn authorization_info into an object?
+* Email address null
+* Move user creation test to User
+* User info must retrieve email
+* User create must use proper user hash keys
+* Test new user creation
 * Redirects to "/" instead of "resumes/show"
 * Devise integration testing. User must be logged in after authorization
 * Install devise

@@ -1,5 +1,4 @@
 require 'test_helper'
-require 'linked_in/oauth_client'
 
 module LinkedIn
   class OauthClientTest < ActiveSupport::TestCase
@@ -16,10 +15,14 @@ module LinkedIn
     test "fetches user info" do
       klass = Class.new(OauthClient) do
         define_method(:get_user_info) do |access_token|
-          return '{"uid": "12345", "first-name": "Rubén", "last-name": "Gil", "e-mail-address": "rubengil22@gmail.com"}'
+          return '{"id": "12345", "firstName": "Rubén", "lastName": "Gil", "emailAddress": "rubengil22@gmail.com"}'
         end
       end
-      assert_equal({"uid" => "12345", "first-name" => 'Rubén', "last-name" => 'Gil', "e-mail-address" => 'rubengil22@gmail.com'}, klass.new.fetch_user_info("access_token"))
+      user_info = klass.new.fetch_user_info("access_token")
+      assert_equal "12345", user_info.uid
+      assert_equal 'Rubén', user_info.first_name
+      assert_equal  'Gil', user_info.last_name
+      assert_equal  'rubengil22@gmail.com', user_info.email
     end
   end
 end
