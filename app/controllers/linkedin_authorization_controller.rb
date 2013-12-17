@@ -6,7 +6,7 @@ class LinkedinAuthorizationController < ApplicationController
   def callback
     @authorization_info = oauth_authorize params[:code]
     # Login user
-    @user = User.where('uid=?', @authorization_info[:user_info][:uid]).first
+    @user = User.from_authorization_info @authorization_info
     sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
   end
 
