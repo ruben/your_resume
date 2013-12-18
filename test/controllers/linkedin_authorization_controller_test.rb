@@ -14,6 +14,6 @@ class LinkedinAuthorizationControllerTest < ActionController::TestCase
 
   test "redirects to sign in path when not authorized" do
     get :callback, error: 'access_denied', error_description: 'the user denied your request', state: @state
-    assert_redirected_to linkedin_new_session_path
+    assert_redirected_to new_user_session_path
   end
 end

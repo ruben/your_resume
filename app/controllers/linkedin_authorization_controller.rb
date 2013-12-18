@@ -9,7 +9,7 @@ class LinkedinAuthorizationController < ApplicationController
       @user = User.from_authorization_info @authorization_info
       sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
     else
-      redirect_to linkedin_new_session_path
+      redirect_to new_user_session_path
     end
 
   end

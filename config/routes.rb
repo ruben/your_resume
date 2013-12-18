@@ -9,7 +9,7 @@ YourResume::Application.routes.draw do
 
   get "linkedin_authorization/authorize", as: 'linkedin_authorize'
 
-  get "linkedin_sessions/new", as: 'linkedin_new_session'
+  get "linkedin_sessions/new", as: 'new_user_session'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
