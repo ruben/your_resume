@@ -1,13 +1,17 @@
 class LinkedinAuthorizationController < ApplicationController
   def authorize
-      redirect_to oauth_authorize_url
+    redirect_to oauth_authorize_url
   end
 
   def callback
-    @authorization_info = oauth_authorize params[:code]
-    # Login user
-    @user = User.from_authorization_info @authorization_info
-    sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
+    if @code = params[:code]
+      @authorization_info = oauth_authorize params[:code]
+      @user = User.from_authorization_info @authorization_info
+      sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
+    else
+      redirect_to linkedin_new_session_path
+    end
+
   end
 
   def oauth_authorize_url

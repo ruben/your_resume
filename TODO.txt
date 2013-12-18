@@ -1,14 +1,14 @@
 TODO
-
-* Test redirected_to in linkedin_authorization_controller
-* Test user_signed_in? in linked_in_authorization_controller
 * Test authorization error
-* Refactor routes
 * Before filter authenticate_user! in resumes/show
 * Map users#new_user_session to 'Login with linked in page'
+* Refactor routes
 * I18n.enforce_available_locales message
+* Refactor authorization_info helper to authorization_info user_name
 
 DONE
+* Test user_signed_in? in linked_in_authorization_controller
+* Test redirected_to in linkedin_authorization_controller
 * Turn authorization_info into an object?
 * Email address null
 * Move user creation test to User

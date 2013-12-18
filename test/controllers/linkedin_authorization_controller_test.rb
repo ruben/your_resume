@@ -5,17 +5,15 @@ class LinkedinAuthorizationControllerTest < ActionController::TestCase
     @code, @state = "code", "state"
   end
 
-  test "callback retrieves user if it exists" do
+  test "signs in and redirects to root path when authorized" do
     LinkedIn::OauthClient.expects(:authorize).returns authorization_info("ruben-uid", "rubengil22@gmail.com")
     get :callback, code: @code, state: @state
-    assert_equal users(:rubengil), assigns(:user)
+    assert warden.authenticated?(:user)
+    assert_redirected_to root_path
   end
 
-  test "callback creates user if it doesn't exist" do
-    LinkedIn::OauthClient.expects(:authorize).returns authorization_info("newuser-uid", "newuser@gmail.com")
-    assert_difference "User.count" do
-      get :callback, code: @code, state: @state
-      assert_not_nil assigns :user
-    end
+  test "redirects to sign in path when not authorized" do
+    get :callback, error: 'access_denied', error_description: 'the user denied your request', state: @state
+    assert_redirected_to linkedin_new_session_path
   end
 end

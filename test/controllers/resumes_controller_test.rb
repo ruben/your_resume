@@ -5,5 +5,4 @@ class ResumesControllerTest < ActionController::TestCase
     get :show
     assert_response :success
   end
-
 end
