@@ -2,7 +2,7 @@ require 'test_helper'
 
 class LinkedinLoginTest < ActionDispatch::IntegrationTest
   setup do
-    LinkedinAuthorizationController.any_instance.stubs(:oauth_authorize_url).returns("/linkedin_authorization/callback")
+    LinkedinAuthorizationController.any_instance.stubs(:oauth_authorize_url).returns("/linkedin_authorization/callback?code=CODE")
     LinkedinAuthorizationController.any_instance.stubs(:oauth_authorize).returns(authorization_info "ruben-uid", "rubengil22@gmail.com")
   end
 
