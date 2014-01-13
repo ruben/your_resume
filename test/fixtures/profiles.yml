@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+rubengil_profile:
+  first_name: Rubén
+  last_name: Gil
+  summary: Rubén has a lot of experience
+  user: rubengil

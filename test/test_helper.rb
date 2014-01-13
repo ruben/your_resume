@@ -27,7 +27,7 @@ class ActiveSupport::TestCase
   def authorization_info uid, email
     user_info = MockUserInfo.new(uid: uid, first_name: "Rubén", last_name: "Gil", email: email)
     {user_info: user_info,
-     access_token: {"expires_in" => 12345, "access_token" => "ACCESS_TOKEN"}}
+     access_info: {"expires_in" => 12345, "access_token" => "ACCESS_TOKEN"}}
   end
 
 end
