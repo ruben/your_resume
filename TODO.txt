@@ -1,8 +1,6 @@
 TODO
-* Fix oauth_client_test
-* Include test/lib in rake
-* Undefined API_KEY error when executing ruby -I test/ test/lib/oauth_client_test.rb
-* Refactor UserProfile with instance methods
+* Implement refresh
+* Refactor LikedIn::Client with instance methods
 * Refactor common code in UserProfile and OauthClient
 * Refactor access_info to an object
 * Store UserProfile in db
@@ -11,6 +9,9 @@ TODO
 * Refactor authorization_info helper to authorization_info user_name
 
 DONE
+* Undefined API_KEY error when executing ruby -I test/ test/lib/oauth_client_test.rb
+* Fix oauth_client_test
+* Include test/lib in rake
 * Fix functional test mocking access to LinkedIn (try and watch tenderlove video)
 * Implement UserProfile.get
 * Get summary from LinkedIn
