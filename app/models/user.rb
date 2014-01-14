@@ -14,6 +14,9 @@ class User < ActiveRecord::Base
                          last_name: user_info.last_name,
                          access_token: access_info['access_token'],
                          expires_at: access_info['expires_in'])
+    else
+      user.update(access_token: access_info['access_token'],
+                  expires_at: access_info['expires_in'])
     end
     user
   end

@@ -5,6 +5,8 @@ YourResume::Application.routes.draw do
 
   get "resumes/show"
 
+  get "resumes/refresh"
+
   get "linkedin_authorization/callback"
 
   get "linkedin_authorization/authorize", as: 'linkedin_authorize'

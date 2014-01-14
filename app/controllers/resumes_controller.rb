@@ -4,4 +4,9 @@ class ResumesController < ApplicationController
   def show
     @user_profile = current_user.profile
   end
+
+  def refresh
+    current_user.profile.load_from(LinkedIn::Client.new)
+    redirect_to resumes_show_path
+  end
 end
