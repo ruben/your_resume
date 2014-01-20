@@ -6,24 +6,10 @@ module LinkedIn
     def self.authorize authorization_code
       oauth_client = new
       access_info = oauth_client.fetch_access_token authorization_code
-      user_info = oauth_client.fetch_user_info access_info["access_token"]
-      {user_info: user_info, access_info: access_info}
     end
 
     def self.authorize_url
       new.authorize_url
-    end
-
-    def fetch_user_info access_token
-      OauthUserInfo.new(JSON.parse get_user_info access_token)
-    end
-
-    def get_user_info access_token
-      user_info = RestClient.get user_profile_url,
-                     params:
-                         {oauth2_access_token: access_token,
-                          format: "json"}
-      user_info
     end
 
     def fetch_access_token authorization_code
@@ -48,10 +34,6 @@ module LinkedIn
 
     def access_token_url
       'https://www.linkedin.com/uas/oauth2/accessToken'
-    end
-
-    def user_profile_url
-      "https://api.linkedin.com/v1/people/~:(id,email-address,first-name,last-name)"
     end
 
     def authorize_params

@@ -15,6 +15,6 @@ class ResumesControllerTest < ActionController::TestCase
     LinkedIn::Client.any_instance.stubs(:fetch).returns(LinkedIn::ProfileInfo.new("summary" => "Rubén has a loooot of experience"))
     get :refresh
     assert_equal "Rubén has a loooot of experience", @user.profile.summary
-    assert_redirected_to "resumes#show"
+    assert_redirected_to resumes_show_path
   end
 end
