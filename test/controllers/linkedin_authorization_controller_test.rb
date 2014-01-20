@@ -7,7 +7,7 @@ class LinkedinAuthorizationControllerTest < ActionController::TestCase
 
   test "signs in and redirects to root path when authorized" do
     linked_in_client = LinkedIn::Client.new "access_info"
-    linked_in_client.stubs(:authorization_info).returns authorization_info("ruben-uid", "rubengil22@gmail.com")
+    linked_in_client.stubs(:user_info).returns user_info("ruben-uid", "rubengil22@gmail.com")
     LinkedinAuthorizationController.any_instance.stubs(:linked_in_client).returns(linked_in_client)
     get :callback, code: @code, state: @state
     assert warden.authenticated?(:user)

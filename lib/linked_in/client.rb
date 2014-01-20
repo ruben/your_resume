@@ -1,10 +1,13 @@
 module LinkedIn
   class Client
-    def initialize access_token
+    attr_reader :access_token, :expires_in
+
+    def initialize access_token, expires_in
       @access_token = access_token
+      @expires_at = expires_in
     end
 
-    def authorization_info
+    def user_info
       OauthUserInfo.new(JSON.parse get_user_info @access_token)
     end
 
