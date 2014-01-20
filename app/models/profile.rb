@@ -1,5 +1,7 @@
 class Profile < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
+
+  end
 
   def load_from client
     profile_info = client.fetch user
