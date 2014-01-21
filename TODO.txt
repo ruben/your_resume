@@ -1,4 +1,5 @@
 TODO
+* Use linked_in_client helper in LinkedIn::ClientTest
 * Create LinkedIn::ClientTest
 * Refactor LinkedIn::Client
 * Refactor LikedIn::OauthClient

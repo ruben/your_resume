@@ -20,10 +20,10 @@ module LinkedIn
     end
 
     def profile_info
-      ProfileInfo.new JSON.parse get(@access_token)
+      ProfileInfo.new JSON.parse get_profile_info(@access_token)
     end
 
-    def get access_token
+    def get_profile_info access_token
       RestClient.get self.user_profile_url,
                      params:
                          {oauth2_access_token: access_token,

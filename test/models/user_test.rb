@@ -23,7 +23,7 @@ class UserTest < ActiveSupport::TestCase
     linked_in_client = LinkedIn::Client.new("ACCESS_TOKEN", "expires_in")
     linked_in_client.expects(:get_user_info).returns(user_info_hash uid)
     if user_fields
-      linked_in_client.expects(:get).returns(profile_info_hash uid, user_fields)
+      linked_in_client.expects(:get_profile_info).returns(profile_info_hash uid, user_fields)
     end
     linked_in_client
   end
