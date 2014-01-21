@@ -5,18 +5,17 @@ module LinkedIn
   class OauthClient
     def self.authorize authorization_code
       oauth_client = new
-      access_info = oauth_client.fetch_access_token authorization_code
+      oauth_client.access_token authorization_code
     end
 
     def self.authorize_url
       new.authorize_url
     end
 
-    def fetch_access_token authorization_code
+    def access_token authorization_code
       JSON.parse get_access_token authorization_code
     end
 
-    ## Gets authorization response as json
     def get_access_token authorization_code
       RestClient.post access_token_url,
                       grant_type: "authorization_code",

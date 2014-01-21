@@ -1,11 +1,8 @@
 TODO
-* Use linked_in_client helper in LinkedIn::ClientTest
-* Create LinkedIn::ClientTest
-* Refactor LinkedIn::Client
+
 * Refactor LikedIn::OauthClient
-* Refactor common code in UserProfile and OauthClient
+* Como convierte campos de github a cliente en video Tenderlove?
 * Refactor access_info to an object
-* Store UserProfile in db
-* Implement refresh button
+* Add fields to UserProfile
 * Refactor routes
 * Refactor authorization_info helper to authorization_info user_name
