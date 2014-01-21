@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :trackable
 
-  def self.from_authorization_info linked_in_client
+  def self.from_linked_in linked_in_client
     user_info = linked_in_client.user_info
     unless user = User.where('uid=?', user_info.uid).first
       user = User.create(uid: user_info.uid,

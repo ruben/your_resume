@@ -28,6 +28,17 @@ class ActiveSupport::TestCase
     user_info = MockUserInfo.new(uid: uid, first_name: "Rubén", last_name: "Gil", email: email)
   end
 
+  def access_token_hash access_token
+    '{"expires_in":5184000, "access_token": "' + access_token + '"}'
+  end
+
+  def user_info_hash uid
+    '{"id": "' + uid + '", "firstName": "Rubén", "lastName": "Gil", "emailAddress": "' + uid + '@gmail.com"}'
+  end
+
+  def profile_info_hash uid, attributes
+    '{"id": "' + uid + '", "firstName": "' + attributes[:first_name] + '", "summary": "' + attributes[:summary] + '"}'
+  end
 end
 
 # Fixes error 'NoMethodError: undefined method `env’ for nil:NilClass'.

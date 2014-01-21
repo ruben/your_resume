@@ -1,47 +1,10 @@
 TODO
-
-* Refactor common test setup code
+* Refactor UserTest
+* Refactor LinkedIn::Client
+* Refactor LikedIn::OauthClient
 * Refactor common code in UserProfile and OauthClient
 * Refactor access_info to an object
 * Store UserProfile in db
 * Implement refresh button
 * Refactor routes
 * Refactor authorization_info helper to authorization_info user_name
-
-DONE
-* Refactor LinkedInAuthorizationController
-* Parametrize results from mock calls
-* More robust LinkedInAuthorizationControllerTest
-* Implement profile creation
-* Implement refresh
-* Refactor LikedIn::Client with instance methods
-* Undefined API_KEY error when executing ruby -I test/ test/lib/oauth_client_test.rb
-* Fix oauth_client_test
-* Include test/lib in rake
-* Fix functional test mocking access to LinkedIn (try and watch tenderlove video)
-* Implement UserProfile.get
-* Get summary from LinkedIn
-* Store access token in User model
-* Before filter authenticate_user! in resumes/show
-* Fix integration test
-* Map users#new_user_session to 'Login with linked in page'
-* route = :"new_#{scope}_session_path"
-* Configure devise path for sessions#new
-* Devise has already a current_user
-* Test authorization error
-* Test user_signed_in? in linked_in_authorization_controller
-* Test redirected_to in linkedin_authorization_controller
-* Turn authorization_info into an object?
-* Email address null
-* Move user creation test to User
-* User info must retrieve email
-* User create must use proper user hash keys
-* Test new user creation
-* Redirects to "/" instead of "resumes/show"
-* Devise integration testing. User must be logged in after authorization
-* Install devise
-* Substitute flexmock by mocka
-* User id in authorization_info
-* Move UserSessionsController#new to LinkedInAuthenticationController#autorize.
-* OauthClient must return user_id and access_token.
-* Manual testing of LinkedInAuthorizationController#authorize (returns user_info and access_token).

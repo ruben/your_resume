@@ -19,12 +19,4 @@ class LinkedinAuthorizationControllerTest < ActionController::TestCase
     get :callback, error: 'access_denied', error_description: 'the user denied your request', state: @state
     assert_redirected_to new_user_session_path
   end
-
-  def access_token_hash access_token
-    '{"expires_in":5184000, "access_token": "' + access_token + '"}'
-  end
-
-  def user_info_hash uid
-    '{"id": "' + uid + '", "firstName": "Rubén", "lastName": "Gil", "emailAddress": "rubengil22@gmail.com"}'
-  end
 end
