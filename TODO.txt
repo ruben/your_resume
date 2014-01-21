@@ -1,7 +1,6 @@
 TODO
 
-* Refactor LinkedInAuthorizationController
-* Parametrize results from mock calls
+* Refactor common test setup code
 * Refactor common code in UserProfile and OauthClient
 * Refactor access_info to an object
 * Store UserProfile in db
@@ -10,6 +9,8 @@ TODO
 * Refactor authorization_info helper to authorization_info user_name
 
 DONE
+* Refactor LinkedInAuthorizationController
+* Parametrize results from mock calls
 * More robust LinkedInAuthorizationControllerTest
 * Implement profile creation
 * Implement refresh
