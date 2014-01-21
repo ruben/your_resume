@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   setup do
-    @linked_in_client = LinkedIn::Client.new("access_token")
+    @linked_in_client = LinkedIn::Client.new("access_token", "expires_in")
   end
 
   test "Retrieves user if exists" do
