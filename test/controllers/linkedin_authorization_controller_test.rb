@@ -2,13 +2,13 @@ require 'test_helper'
 
 class LinkedinAuthorizationControllerTest < ActionController::TestCase
   setup do
-    @code, @state = "code", "state"
+    @code, @state = "CODE", "STATE"
+    @access_token = "ACCESS_TOKEN"
   end
 
   test "signs in and redirects to root path when authorized" do
-    linked_in_client = LinkedIn::Client.new "access_info"
-    linked_in_client.stubs(:user_info).returns user_info("ruben-uid", "rubengil22@gmail.com")
-    LinkedinAuthorizationController.any_instance.stubs(:linked_in_client).returns(linked_in_client)
+    LinkedIn::OauthClient.any_instance.expects(:get_access_token).with(@code).returns('{"expires_in":5184000, "access_token": "ACCESS_TOKEN"}')
+    LinkedIn::Client.any_instance.expects(:get_user_info).with(@access_token).returns('{"id": "ruben-uid", "firstName": "Rubén", "lastName": "Gil", "emailAddress": "rubengil22@gmail.com"}')
     get :callback, code: @code, state: @state
     assert warden.authenticated?(:user)
     assert_redirected_to root_path

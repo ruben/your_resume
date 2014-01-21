@@ -1,6 +1,6 @@
 TODO
 
-* Implement profile creation
+* More robust LinkedInAuthorizationControllerTest
 * Refactor common code in UserProfile and OauthClient
 * Refactor access_info to an object
 * Store UserProfile in db
@@ -9,6 +9,7 @@ TODO
 * Refactor authorization_info helper to authorization_info user_name
 
 DONE
+* Implement profile creation
 * Implement refresh
 * Refactor LikedIn::Client with instance methods
 * Undefined API_KEY error when executing ruby -I test/ test/lib/oauth_client_test.rb

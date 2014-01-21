@@ -18,7 +18,7 @@ class LinkedinAuthorizationController < ApplicationController
   end
 
   def linked_in_client
-    authorization_info = oauth_authorize(params[:code])
+    authorization_info = oauth_authorize params[:code]
     LinkedIn::Client.new(authorization_info["access_token"], authorization_info["expires_in"])
   end
 
