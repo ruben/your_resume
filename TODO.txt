@@ -1,5 +1,5 @@
 TODO
-* Refactor UserTest
+* Create LinkedIn::ClientTest
 * Refactor LinkedIn::Client
 * Refactor LikedIn::OauthClient
 * Refactor common code in UserProfile and OauthClient
