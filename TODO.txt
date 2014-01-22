@@ -1,7 +1,7 @@
 TODO
 
-* Refactor LikedIn::OauthClient
-* Como convierte campos de github a cliente en video Tenderlove?
+* Remove fields from oauth_client and client tests
+* Remove data objects and move the field logic to record creation
 * Refactor access_info to an object
 * Add fields to UserProfile
 * Refactor routes
