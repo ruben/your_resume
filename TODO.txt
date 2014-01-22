@@ -1,4 +1,5 @@
 TODO
+* Refactor ProfileTest
 * Remove data objects and move the field logic to record creation
 * Refactor access_info to an object
 * Add fields to UserProfile

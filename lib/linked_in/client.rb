@@ -20,7 +20,7 @@ module LinkedIn
     end
 
     def profile_info
-      ProfileInfo.new JSON.parse get_profile_info(@access_token)
+      JSON.parse get_profile_info(@access_token)
     end
 
     def get_profile_info access_token

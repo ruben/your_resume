@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
                          access_token: linked_in_client.access_token,
                          expires_at: linked_in_client.expires_in)
       profile_info = linked_in_client.profile_info
-      user.create_profile(first_name: profile_info.first_name, summary: profile_info.summary)
+      user.create_profile(first_name: profile_info["firstName"], summary: profile_info["summary"])
     else
       user.update(access_token: linked_in_client.access_token,
                   expires_at: linked_in_client.expires_in)

@@ -12,7 +12,7 @@ class ResumesControllerTest < ActionController::TestCase
   end
 
   test "refreshes resume" do
-    LinkedIn::Client.any_instance.stubs(:fetch).returns(LinkedIn::ProfileInfo.new("summary" => "Rubén has a loooot of experience"))
+    LinkedIn::Client.any_instance.stubs(:get_profile_info).returns('{"firstName": "Rubén", "summary": "Rubén has a loooot of experience"}')
     get :refresh
     assert_equal "Rubén has a loooot of experience", @user.profile.summary
     assert_redirected_to resumes_show_path
