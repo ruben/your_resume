@@ -10,17 +10,13 @@ module LinkedIn
     test "fetches user info" do
       @linked_in_client.expects(:get_user_info).returns('{"id": "12345", "firstName": "Rubén", "lastName": "Gil", "emailAddress": "rubengil22@gmail.com"}')
       user_info = @linked_in_client.user_info
-      assert_equal "12345", user_info.uid
-      assert_equal 'Rubén', user_info.first_name
-      assert_equal  'Gil', user_info.last_name
-      assert_equal  'rubengil22@gmail.com', user_info.email
+      assert_not_nil user_info
     end
 
     test "fetches profile info" do
       @linked_in_client.expects(:get_profile_info).returns('{"firstName": "Rubén", "summary": "Rubén has a lot of experience"}')
       profile_info = @linked_in_client.profile_info
-      assert_equal "Rubén", profile_info.first_name
-      assert_equal "Rubén has a lot of experience", profile_info.summary
+      assert_not_nil profile_info
     end
   end
 end
