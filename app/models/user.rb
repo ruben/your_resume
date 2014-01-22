@@ -3,14 +3,13 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :trackable
-
   def self.from_linked_in linked_in_client
     user_info = linked_in_client.user_info
-    unless user = User.where('uid=?', user_info.uid).first
-      user = User.create(uid: user_info.uid,
-                         email: user_info.email,
-                         first_name: user_info.first_name,
-                         last_name: user_info.last_name,
+    unless user = User.where('uid=?', user_info["id"]).first
+      user = User.create(uid: user_info["id"],
+                         email: user_info["emailAddress"],
+                         first_name: user_info["firstName"],
+                         last_name: user_info["lastName"],
                          access_token: linked_in_client.access_token,
                          expires_at: linked_in_client.expires_in)
       profile_info = linked_in_client.profile_info

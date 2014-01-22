@@ -8,7 +8,7 @@ module LinkedIn
     end
 
     def user_info
-      OauthUserInfo.new(JSON.parse get_user_info @access_token)
+      JSON.parse get_user_info @access_token
     end
 
     def get_user_info access_token
