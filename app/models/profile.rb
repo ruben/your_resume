@@ -3,6 +3,6 @@ class Profile < ActiveRecord::Base
 
   def load_from client
     profile_info = client.profile_info
-    update(first_name: profile_info["firstName"], summary: profile_info["summary"])
+    update first_name: profile_info["firstName"], summary: profile_info["summary"]
   end
 end
