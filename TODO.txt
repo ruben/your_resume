@@ -1,4 +1,4 @@
 TODO
-* Refactor ClientTest
+* Refactor ProfileTest
 * Refactor routes
 * Refactor authorization_info helper to authorization_info user_name
