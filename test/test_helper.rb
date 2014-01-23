@@ -22,8 +22,8 @@ class ActiveSupport::TestCase
     '{"id": "' + uid + '", "firstName": "' + first_name + '", "lastName": "' + last_name + '", "emailAddress": "' + email_address + '"}'
   end
 
-  def profile_info_hash uid, attributes
-    '{"id": "' + uid + '", "firstName": "' + attributes[:first_name] + '", "summary": "' + attributes[:summary] + '"}'
+  def profile_info_hash uid, first_name, summary
+    '{"id": "' + uid + '", "firstName": "' + first_name + '", "summary": "' + summary + '"}'
   end
 end
 
