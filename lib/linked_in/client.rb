@@ -16,7 +16,7 @@ module LinkedIn
                                  params:
                                      {oauth2_access_token: access_token,
                                       format: "json"}
-      user_info
+      user_info.merge 'access_token' => @access_token, 'expires_at' => @expires_at
     end
 
     def profile_info

@@ -18,8 +18,8 @@ class ActiveSupport::TestCase
     '{"expires_in":5184000, "access_token": "' + access_token + '"}'
   end
 
-  def user_info_hash uid, first_name, last_name, email_address
-    '{"id": "' + uid + '", "firstName": "' + first_name + '", "lastName": "' + last_name + '", "emailAddress": "' + email_address + '"}'
+  def user_info_hash uid, first_name, last_name, email_address, access_token, expires_at
+    '{"id": "' + uid + '", "firstName": "' + first_name + '", "lastName": "' + last_name + '", "emailAddress": "' + email_address + '", "access_token": "' + access_token + '", "expires_at": "' + expires_at.to_s + '"}'
   end
 
   def profile_info_hash uid, first_name, summary
