@@ -17,7 +17,7 @@ class ResumesControllerTest < ActionController::TestCase
     assert_redirected_to resumes_show_path
   end
 
-  def self.stub_profile_info
+  def stub_profile_info
     LinkedIn::Client.any_instance.stubs(:profile_info).returns(JSON.parse '{"firstName": "Rubén", "summary": "Rubén has a loooot of experience"}')
   end
 end
