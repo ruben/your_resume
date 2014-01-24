@@ -48,12 +48,12 @@ JSON
     profile_info_json
   end
 
-  def stub_get_user_info access_token, user
-    LinkedIn::Client.any_instance.stubs(:get_user_info).with(access_token).returns(user_info_hash user.uid, user.first_name, user.last_name, user.email, user.access_token, user.expires_at)
+  def stub_get_user_info user
+    LinkedIn::Client.any_instance.stubs(:get_user_info).returns(user_info_hash user.uid, user.first_name, user.last_name, user.email, user.access_token, user.expires_at)
   end
 
-  def stub_get_profile_info access_token, profile
-    LinkedIn::Client.any_instance.stubs(:get_profile_info).with(access_token).returns(profile_info_hash profile.first_name, profile.summary)
+  def stub_get_profile_info profile
+    LinkedIn::Client.any_instance.stubs(:get_profile_info).returns(profile_info_hash profile.first_name, profile.summary)
   end
 end
 

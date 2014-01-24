@@ -8,7 +8,7 @@ class LinkedinAuthorizationControllerTest < ActionController::TestCase
 
   test "signs in and redirects to root path when authorized" do
     stub_get_access_token @code, @user.access_token
-    stub_get_user_info @user.access_token, @user
+    stub_get_user_info @user
     get :callback, code: @code, state: @state
     assert warden.authenticated?(:user)
     assert_redirected_to root_path

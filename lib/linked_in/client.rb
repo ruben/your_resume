@@ -8,30 +8,37 @@ module LinkedIn
     end
 
     def user_info
-      JSON.parse get_user_info @access_token
-    end
-
-    def get_user_info access_token
-      user_info = RestClient.get user_profile_url,
-                                 params:
-                                     {oauth2_access_token: access_token,
-                                      format: "json"}
+      user_info = parse get_user_info
       user_info.merge 'access_token' => @access_token, 'expires_at' => @expires_at
+      user_info
     end
 
     def profile_info
-      JSON.parse get_profile_info(@access_token)
+      parse get_profile_info
     end
 
-    def get_profile_info access_token
-      RestClient.get self.user_profile_url,
+    private
+    def parse json
+      JSON.parse json
+    end
+
+    def get_user_info
+      get_people "id,first-name,last-name,email-address"
+    end
+
+    def get_profile_info
+      get_people "summary"
+    end
+
+    def get_people attrs
+      RestClient.get "#{self.user_profile_url}:(#{attrs})",
                      params:
-                         {oauth2_access_token: access_token,
+                         {oauth2_access_token: @access_token,
                           format: "json"}
     end
 
     def user_profile_url
-      "https://api.linkedin.com/v1/people/~:(id,email-address,first-name,last-name,summary)"
+      "https://api.linkedin.com/v1/people/~"
     end
   end
 end

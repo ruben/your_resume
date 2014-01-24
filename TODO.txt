@@ -1,5 +1,4 @@
 TODO
-* Refactor JSON response creation
 * Implement  Client#profile_info and Client#user_info calls
 * Create complete resume models
 * Refactor ResumesControllerTest
