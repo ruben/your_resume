@@ -14,7 +14,7 @@ module LinkedIn
     end
 
     test "fetches profile info" do
-      @client.expects(:get_profile_info).returns(profile_info_hash 'ruben-uid', "Rubén", "Rubén has a lot of experience")
+      @client.expects(:get_profile_info).returns(profile_info_hash "Rubén", "Rubén has a lot of experience")
       profile_info = @client.profile_info
       assert_not_nil profile_info
     end

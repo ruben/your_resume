@@ -22,8 +22,8 @@ class ActiveSupport::TestCase
     '{"id": "' + uid + '", "firstName": "' + first_name + '", "lastName": "' + last_name + '", "emailAddress": "' + email_address + '", "access_token": "' + access_token + '", "expires_at": "' + expires_at.to_s + '"}'
   end
 
-  def profile_info_hash uid, first_name, summary
-    '{"id": "' + uid + '", "firstName": "' + first_name + '", "summary": "' + summary + '"}'
+  def profile_info_hash first_name, summary
+    '{"firstName": "' + first_name + '", "summary": "' + summary + '"}'
   end
 
   def stub_linked_in_client
@@ -31,10 +31,10 @@ class ActiveSupport::TestCase
     linked_in_client = {
         @user.access_token => {
             user_info: [@user.uid, @user.first_name, @user.last_name, @user.email, @user.access_token, @user.expires_at],
-            profile_info: [@user.uid, @user.first_name, "Rubén has a loot of experience"]},
+            profile_info: [@user.first_name, "Rubén has a loot of experience"]},
         "new_user_access_token" => {
             user_info: ["new_user_uid", "Pepe", "Viyuela", "pepe@gmail.com", "new_user_token", "new_user_expiration"],
-            profile_info: ["new_user_uid", "Pepe", "Pepe is very inexperienced"]
+            profile_info: ["Pepe", "Pepe is very inexperienced"]
         }
     }
 
@@ -43,6 +43,14 @@ class ActiveSupport::TestCase
         LinkedIn::Client.any_instance.stubs("get_#{method_name}".to_sym).with(access_token).returns(send("#{method_name.to_s}_hash", *params))
       end
     end
+  end
+
+  def stub_get_user_info access_token, user
+    LinkedIn::Client.any_instance.stubs(:get_user_info).with(access_token).returns(user_info_hash user.uid, user.first_name, user.last_name, user.email, user.access_token, user.expires_at)
+  end
+
+  def stub_get_profile_info access_token, profile
+    LinkedIn::Client.any_instance.stubs(:get_profile_info).with(access_token).returns(profile_info_hash profile.first_name, profile.summary)
   end
 end
 

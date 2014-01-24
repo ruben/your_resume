@@ -1,4 +1,6 @@
 TODO
-* Refactor ProfileTest
+* Test stub with functions
+* Implement  Client#profile_info and Client#user_info calls
+* Refactor ResumesControllerTest
 * Refactor routes
 * Refactor authorization_info helper to authorization_info user_name
