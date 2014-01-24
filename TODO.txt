@@ -1,6 +1,7 @@
 TODO
-* Test stub with functions
+* Refactor JSON response creation
 * Implement  Client#profile_info and Client#user_info calls
+* Create complete resume models
 * Refactor ResumesControllerTest
 * Refactor routes
 * Refactor authorization_info helper to authorization_info user_name

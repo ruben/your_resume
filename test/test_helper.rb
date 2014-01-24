@@ -15,15 +15,37 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
 
   def access_token_hash access_token
-    '{"expires_in":5184000, "access_token": "' + access_token + '"}'
+    access_token_json = <<-JSON
+    {
+      "expires_in": 5184000,
+      "access_token": "#{access_token}"
+    }
+    JSON
+    access_token_json
   end
 
   def user_info_hash uid, first_name, last_name, email_address, access_token, expires_at
-    '{"id": "' + uid + '", "firstName": "' + first_name + '", "lastName": "' + last_name + '", "emailAddress": "' + email_address + '", "access_token": "' + access_token + '", "expires_at": "' + expires_at.to_s + '"}'
+    user_info_json = <<-JSON
+    {
+      "id": "#{uid}",
+      "firstName": "#{first_name}",
+      "lastName": "#{last_name}",
+      "emailAddress": "#{email_address}",
+      "access_token": "#{access_token}",
+      "expires_at": "#{expires_at.to_s}"
+    }
+    JSON
+    user_info_json
   end
 
   def profile_info_hash first_name, summary
-    '{"firstName": "' + first_name + '", "summary": "' + summary + '"}'
+    profile_info_json = <<-JSON
+    {
+      "firstName": "#{first_name}",
+      "summary": "#{summary}"
+    }
+JSON
+    profile_info_json
   end
 
   def stub_get_user_info access_token, user
