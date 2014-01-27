@@ -1,6 +1,24 @@
 TODO
-* Implement  Client#profile_info and Client#user_info calls
+* Access token not saved
 * Create complete resume models
+- summary
+- experience
+http://developer.linkedin.com/documents/profile-fields#positions
+id	position	a unique identifier for this member's position
+title	position	the job title held at the position, as indicated by the member
+summary	position	a summary of the member's position	Not available via connections.
+start-date	position	a structured object with month and year fields indicating when the position began
+end-date	position	a structured object with month and year fields indicating when the position ended	Blank when the position is current
+is-current	position	a "true" or "false" value, depending on whether it is marked current
+company	position	the company the member works for	See Company Fields below
+
+- projects
+Try request (with full profile permissions):
+http://developer.linkedin.com/forum/how-can-one-gets-list-projects-user
+https://api.linkedin.com/v1/people/~:(first-name,projects)
+- education
+http://developer.linkedin.com/documents/profile-fields#educations
+
 * Refactor ResumesControllerTest
 * Refactor routes
 * Refactor authorization_info helper to authorization_info user_name

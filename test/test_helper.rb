@@ -30,9 +30,7 @@ class ActiveSupport::TestCase
       "id": "#{uid}",
       "firstName": "#{first_name}",
       "lastName": "#{last_name}",
-      "emailAddress": "#{email_address}",
-      "access_token": "#{access_token}",
-      "expires_at": "#{expires_at.to_s}"
+      "emailAddress": "#{email_address}"
     }
     JSON
     user_info_json
@@ -48,8 +46,8 @@ JSON
     profile_info_json
   end
 
-  def stub_get_user_info user
-    LinkedIn::Client.any_instance.stubs(:get_user_info).returns(user_info_hash user.uid, user.first_name, user.last_name, user.email, user.access_token, user.expires_at)
+  def stub_get_user_info user, access_token
+    LinkedIn::Client.any_instance.stubs(:get_user_info).returns(user_info_hash user.uid, user.first_name, user.last_name, user.email, access_token, user.expires_at)
   end
 
   def stub_get_profile_info profile

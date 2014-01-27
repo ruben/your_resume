@@ -9,7 +9,7 @@ module LinkedIn
 
     def user_info
       user_info = parse get_user_info
-      user_info.merge 'access_token' => @access_token, 'expires_at' => @expires_at
+      user_info = user_info.merge 'access_token' => @access_token, 'expires_at' => @expires_at
       user_info
     end
 
@@ -27,11 +27,11 @@ module LinkedIn
     end
 
     def get_profile_info
-      get_people "summary"
+      get_people "summary,positions"
     end
 
     def get_people attrs
-      RestClient.get "#{self.user_profile_url}:(#{attrs})",
+      RestClient.get "#{user_profile_url}:(#{attrs})",
                      params:
                          {oauth2_access_token: @access_token,
                           format: "json"}
