@@ -16,7 +16,6 @@ class ProfileTest < ActiveSupport::TestCase
   test "Loads positions" do
     assert_difference "@profile.positions.count", @client.profile_info['positions']['_total'] do
       @profile.load_from(@client)
-      p @profile.positions
     end
   end
 end

@@ -5,9 +5,13 @@ class Profile < ActiveRecord::Base
   def load_from client
     profile_info = client.profile_info
     update first_name: profile_info["firstName"], summary: profile_info["summary"]
-    positions_data = profile_info["positions"]["values"]
+    load_positions(profile_info["positions"]["values"])
+  end
+
+  private
+  def load_positions(positions_data)
     positions_data.each do |position_data|
-       positions << Position.new_from_json(position_data)
+      positions << Position.new_from_json(position_data)
     end
   end
 end
