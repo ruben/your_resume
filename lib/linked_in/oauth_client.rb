@@ -25,23 +25,30 @@ module LinkedIn
                       client_secret: SECRET_KEY
     end
 
+    private
     def authorize_url
       ["https://www.linkedin.com/uas/oauth2/authorization", authorize_params.to_query].join("?")
     end
-
-    private
 
     def access_token_url
       'https://www.linkedin.com/uas/oauth2/accessToken'
     end
 
     def authorize_params
-      {response_type: "code",
+      {response_type: response_type,
        client_id: "0sskhvc5i3a3",
-       scope: "r_fullprofile r_emailaddress",
+       scope: scope,
        state: "5c3dfc38244eeea97e425c8ae79c6a13f08c82182f03d3e29b2b5534ae1c78ad2595e9f253fad9ec4429dda90412d64166fafdef56ac8c8be76e0c0487c94031",
        redirect_uri: redirect_uri,
       }
+    end
+
+    def response_type
+      "code"
+    end
+
+    def scope
+      "r_fullprofile r_emailaddress"
     end
 
     def redirect_uri
