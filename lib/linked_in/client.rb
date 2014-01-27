@@ -27,7 +27,9 @@ module LinkedIn
     end
 
     def get_profile_info
-      get_people "summary,positions"
+      profile_info = get_people "summary,positions"
+      puts profile_info
+      profile_info
     end
 
     def get_people attrs

@@ -50,8 +50,9 @@ JSON
     LinkedIn::Client.any_instance.stubs(:get_user_info).returns(user_info_hash user.uid, user.first_name, user.last_name, user.email, access_token, user.expires_at)
   end
 
-  def stub_get_profile_info profile
-    LinkedIn::Client.any_instance.stubs(:get_profile_info).returns(profile_info_hash profile.first_name, profile.summary)
+  def stub_get_profile_info
+    profile_info_json = File.read 'test/fixtures/json_responses/profile.json'
+    LinkedIn::Client.any_instance.stubs(:get_profile_info).returns(profile_info_json)
   end
 end
 

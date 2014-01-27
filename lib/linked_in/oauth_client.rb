@@ -25,11 +25,11 @@ module LinkedIn
                       client_secret: SECRET_KEY
     end
 
-    private
     def authorize_url
       ["https://www.linkedin.com/uas/oauth2/authorization", authorize_params.to_query].join("?")
     end
 
+    private
     def access_token_url
       'https://www.linkedin.com/uas/oauth2/accessToken'
     end

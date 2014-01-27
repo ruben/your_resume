@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140113095008) do
+ActiveRecord::Schema.define(version: 20140127110139) do
+
+  create_table "positions", force: true do |t|
+    t.string   "company",    null: false
+    t.date     "start_date", null: false
+    t.date     "end_date"
+    t.string   "title",      null: false
+    t.text     "summary",    null: false
+    t.integer  "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "profiles", force: true do |t|
     t.string   "first_name"
