@@ -30,19 +30,17 @@
     <h1>Experience</h1>
 
     <div class="description">
+      <% @user_profile.positions.each do |position| %>
       <div class="period">
-        <h1>Razorfish Healthware</h1>
+        <h1><%= position.company %></h1>
 
-        <h2>07/2011 - Present</h2>
+        <h2><%= position.start_date %> - <%= position.end_date %></h2>
 
-        <h3>Senior Technical Architect</h3>
+        <h3><%= position.title %></h3>
 
-        <p>As a senior technical architect defines the languages tools and processes of the technical team. Defines,
-          communicates and reviews codings standards across the company. Coaches and mentors the members of the
-          development team. Ensures the quality of code through code reviewing processes implemented with Github
-          pull requests. Promotes and coordinates technical knowledge spreading within the organization. Tracks and
-          identifies new opportunities to improve the methodology inside the organization.</p>
+        <p><%= position.summary %></p>
       </div>
+      <% end %>
     </div>
   </section>
 </div>
