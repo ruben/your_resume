@@ -10,8 +10,11 @@ class Profile < ActiveRecord::Base
 
   private
   def load_positions(positions_data)
-    positions_data.each do |position_data|
-      positions << Position.new_from_json(position_data)
+    self.transaction do
+      positions.destroy_all
+      positions_data.each do |position_data|
+        positions << Position.new_from_json(position_data)
+      end
     end
   end
 end

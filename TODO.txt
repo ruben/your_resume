@@ -1,5 +1,7 @@
 TODO
-* Access token not saved
+* Test double import
+* User#import must use Profile#import
+* Format dates
 * Create complete resume models
 - summary
 - experience

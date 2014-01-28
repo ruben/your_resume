@@ -9,13 +9,20 @@ class ProfileTest < ActiveSupport::TestCase
   end
 
   test "Loads summary" do
-    @profile.load_from(@client)
+    @profile.load_from @client
     assert_not_nil @profile.summary
   end
 
   test "Loads positions" do
     assert_difference "@profile.positions.count", @client.profile_info['positions']['_total'] do
-      @profile.load_from(@client)
+      @profile.load_from @client
+    end
+  end
+
+  test "Double import" do
+    assert_difference "@profile.positions.count", @client.profile_info['positions']['_total'] do
+      @profile.load_from @client
+      @profile.load_from @client
     end
   end
 end
