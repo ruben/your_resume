@@ -11,7 +11,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "Updates access token" do
-    updated_user = User.from_linked_in(@client)
+    updated_user = User.from_linked_in @client
     assert_not_equal @user.access_token, updated_user.access_token
   end
 
@@ -19,8 +19,14 @@ class UserTest < ActiveSupport::TestCase
     @user.destroy
     assert_difference "User.count" do
       assert_difference "Profile.count" do
-        User.from_linked_in(@client)
+        User.from_linked_in @client
       end
     end
+  end
+
+  test "Creates positions" do
+    @user.destroy
+    @new_user = User.from_linked_in @client
+    assert_equal @client.profile_info['positions']['_total'], @new_user.profile.positions.count
   end
 end

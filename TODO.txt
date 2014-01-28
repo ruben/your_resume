@@ -1,6 +1,4 @@
 TODO
-* Test profile creation on new user import
-* User#import must use Profile#import
 * Format dates
 * Create complete resume models
 - summary
