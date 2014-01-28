@@ -17,3 +17,6 @@
 
 # Ignore RubyMine config files
 .idea/
+
+# Ignore .DS_Store OSX file
+.DS_Store
