@@ -23,10 +23,4 @@ class UserTest < ActiveSupport::TestCase
       end
     end
   end
-
-  test "Creates positions" do
-    @user.destroy
-    @new_user = User.from_linked_in @client
-    assert_equal @client.profile_info['positions']['_total'], @new_user.profile.positions.count
-  end
 end
