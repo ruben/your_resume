@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
           expires_at:    user_info["expires_in"]
       }
       user = User.create(create_params)
-      user.profile = Profile.create_from client
+      user.profile = Profile.create_from client.to_s
     else
       user.update(access_token: user_info["access_token"],
                   expires_at:   user_info["expires_in"])
