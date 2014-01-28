@@ -4,7 +4,7 @@ class ProfileTest < ActiveSupport::TestCase
   setup do
     @user = users :rubengil
     @profile = @user.profile
-    stub_get_profile_info
+    stub_get_profile_info "ruben"
     @client = LinkedIn::Client.new(@user.access_token, "expires_in")
   end
 

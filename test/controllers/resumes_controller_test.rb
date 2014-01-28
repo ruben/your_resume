@@ -12,7 +12,7 @@ class ResumesControllerTest < ActionController::TestCase
   end
 
   test "refreshes resume" do
-    stub_get_profile_info
+    stub_get_profile_info "ruben"
     get :refresh
     assert_redirected_to resumes_show_path
   end

@@ -24,35 +24,14 @@ class ActiveSupport::TestCase
     access_token_json
   end
 
-  def user_info_hash uid, first_name, last_name, email_address, access_token, expires_at
-    user_info_json = <<-JSON
-    {
-      "id": "#{uid}",
-      "firstName": "#{first_name}",
-      "lastName": "#{last_name}",
-      "emailAddress": "#{email_address}"
-    }
-    JSON
-    user_info_json
+  def stub_get_user_info user
+    user_info = File.read "test/fixtures/users/#{user}.json"
+    LinkedIn::Client.any_instance.stubs(:get_user_info).returns(user_info)
   end
 
-  def profile_info_hash first_name, summary
-    profile_info_json = <<-JSON
-    {
-      "firstName": "#{first_name}",
-      "summary": "#{summary}"
-    }
-JSON
-    profile_info_json
-  end
-
-  def stub_get_user_info user, access_token
-    LinkedIn::Client.any_instance.stubs(:get_user_info).returns(user_info_hash user.uid, user.first_name, user.last_name, user.email, access_token, user.expires_at)
-  end
-
-  def stub_get_profile_info
-    profile_info_json = File.read 'test/fixtures/json_responses/profile.json'
-    LinkedIn::Client.any_instance.stubs(:get_profile_info).returns(profile_info_json)
+  def stub_get_profile_info user
+    profile_info = File.read "test/fixtures/profiles/#{user}.json"
+    LinkedIn::Client.any_instance.stubs(:get_profile_info).returns(profile_info)
   end
 end
 
