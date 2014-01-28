@@ -1,7 +1,4 @@
 TODO
-* Change stub_user_info to return example json
-* Parametrize stub_user_info and stub_profile_info with user parameter
-* Create stub_linked_in_client user
 * Test profile creation on new user import
 * User#import must use Profile#import
 * Format dates

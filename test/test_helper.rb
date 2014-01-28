@@ -33,6 +33,12 @@ class ActiveSupport::TestCase
     profile_info = File.read "test/fixtures/profiles/#{user}.json"
     LinkedIn::Client.any_instance.stubs(:get_profile_info).returns(profile_info)
   end
+
+  def stub_linked_in_client user, access_token
+    stub_get_user_info user
+    stub_get_profile_info user
+    @client = LinkedIn::Client.new(access_token, "expires_in")
+  end
 end
 
 # Fixes error 'NoMethodError: undefined method `env’ for nil:NilClass'.
