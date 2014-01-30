@@ -17,6 +17,12 @@ class ProfileTest < ActiveSupport::TestCase
     end
   end
 
+  test "Loads projects" do
+    assert_difference "Project.count", @client.profile_info['projects']['_total'] do
+      Profile.create_from @client
+    end
+  end
+
   test "Double import" do
     assert_difference "Position.count", @client.profile_info['positions']['_total'] do
       profile = Profile.create_from @client

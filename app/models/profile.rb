@@ -1,7 +1,30 @@
+module LoadDataExtension
+  def load_data data
+    self.transaction do
+      association.destroy_all
+      data.each do |data|
+        association.concat class_constant.new_from_json(data)
+      end
+    end
+  end
+
+  def association
+    proxy_association
+  end
+
+  def association_name
+    association.reflection.name
+  end
+
+  def class_constant
+    Object.const_get(association_name.to_s.singularize.classify)
+  end
+end
+
 class Profile < ActiveRecord::Base
   belongs_to :user, dependent: :destroy
-  has_many :positions
-  has_many :projects
+  has_many :positions, -> { extending LoadDataExtension }
+  has_many :projects, -> { extending LoadDataExtension }
 
   def self.create_from client
     profile = new
@@ -11,17 +34,21 @@ class Profile < ActiveRecord::Base
   def load_from client
     profile_info = client.profile_info
     update first_name: profile_info["firstName"], summary: profile_info["summary"]
-    load_positions(profile_info["positions"]["values"])
+    load_children profile_info
     self
   end
 
-  private
-  def load_positions(positions_data)
-    self.transaction do
-      positions.destroy_all
-      positions_data.each do |position_data|
-        positions << Position.new_from_json(position_data)
-      end
+  def load_children profile_info
+    associations.each do |association|
+      load_association association, profile_info
     end
+  end
+
+  def load_association association, profile_info
+    send(association).load_data profile_info[association.to_s]["values"]
+  end
+
+  def associations
+    [:positions, :projects]
   end
 end

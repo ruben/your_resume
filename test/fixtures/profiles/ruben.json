@@ -17,7 +17,7 @@
                     "year": 2011
                 },
                 "summary": "As a senior technical architect defines the languages tools and processes of the technical team. \nDefines, communicates and reviews codings standards across the company.\nCoaches and mentors the members of the development team.\nEnsures the quality of code through code reviewing processes implemented with Github pull requests.\nPromotes and coordinates technical knowledge spreading within the organization.\nTracks and identifies new opportunities to improve the methodology inside the organization.",
-                "title": "Senior Technical Architect"
+                "title": "Senior Technical Architect and Lead Developer"
             },
             {
                 "company": {
@@ -96,5 +96,40 @@
             }
         ]
     },
-    "summary": "Rubén was born in Barcelona (Spain) and has over 20 years of experience on the Information Technology industry.\nWith a degree in Computing Science from the Universitat Politècnica de Catalunya, he begins his professional career in 1992 at Apple Computer Spain. \nSince then his career had developed covering all fields in software design and development: programming, design, architecture, analysis, development methodologies and team mentoring.\nHe is an expert in RubyOnRails and usually contributes to the Open Source community.\nHe worked in companies such as Apple Computer, QSystems, NeworldCity, ONCE and Ibermática. \nIn 2005 he founded Extreme Development, a development company specialized in Ruby and Rails and agile methodologies. \nThis company would be later acquired by Saatchi and Saatchi Health. \nSome of the key companies he worked for are Nestlé, Porcelanosa, Ayuntamiento de Madrid, RAAC, Wolters Kluwert, Roche and GlaxoSmithKline among many others."
+    "projects": {
+        "_total": 5,
+        "values": [
+            {
+                "description": "Online game in which the user manages the economic and sporting aspects.\nAs a senior technical architect gathers requirement and defines the archiitecture and framework. He also acts as Lead Developer programming, mentoring and reviewing the quality of the code monitoring and solving scalability issues.",
+                "id": 51,
+                "name": "Golden Manager",
+                "url": "http://www.goldenmanager.com"
+            },
+            {
+                "description": "Online community for patients, featuring illness tracking, patient community and a specialized magazine for each illness.\nAs a senior architect defines the architecture, technologies and languages used in the project. \nHe also acts as Lead Developer programming, mentoring and reviewing the quality of the code monitoring and solving scalability issues.",
+                "id": 46,
+                "name": "PersonasQue",
+                "url": "http://www.peoplewhoglobal.com/"
+            },
+            {
+                "description": "Online platform to manage the workflow of oncologic samples between hospitals and physician.\nAs a senior architect defines the architecture, technologies and languages used in the project.\n",
+                "id": 55,
+                "name": "Biomarker Point",
+                "url": "http://www.biomarkerpoint.es/"
+            },
+            {
+                "description": "Online community for Universidad de Deusto alumni.\nMy role in this project was requirements gathering, technical architecture definition and code reviewing.",
+                "id": 59,
+                "name": "Alumni ESTE",
+                "url": "http://www.alumnieste.es/"
+            },
+            {
+                "description": "Online version of Wolters Kluwert magazines targeted to accountants, lawyers and marketing professionals.\nAs a technical director he manages the development team, defining the architecture and technologies used throughout the project.",
+                "id": 62,
+                "name": "Wolters Kluwert online magazines",
+                "url": "http://revistacontable.wke.es/"
+            }
+        ]
+    },
+    "summary": "Rubén was born in Barcelona (Spain) and has over 20 years of experience on the Information Technology industry.\nWith a degree in Computing Science from the Universitat Politècnica de Catalunya, he begins his professional career in 1992 at Apple Computer Spain. \nSince then his career had developed covering all fields in software design and development: programming, design, architecture, analysis, development methodologies and team mentoring.\nHe is expert in Ruby On Rails, Java and and Agile Methodologies, including Test Driven Development and Refactoring.\nHe worked in companies such as Apple Computer, QSystems, NeworldCity, ONCE and Ibermática. \nIn 2005 he founded Extreme Development, a development company specialized in Ruby and Rails and agile methodologies. \nThis company would be later acquired by Saatchi and Saatchi Health. \nSome of the key companies he worked for are Nestlé, Porcelanosa, Ayuntamiento de Madrid, RAAC, Wolters Kluwert, Roche and GlaxoSmithKline among many others."
 }
