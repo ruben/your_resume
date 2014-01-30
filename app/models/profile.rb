@@ -1,6 +1,7 @@
 class Profile < ActiveRecord::Base
   belongs_to :user, dependent: :destroy
   has_many :positions
+  has_many :projects
 
   def self.create_from client
     profile = new
