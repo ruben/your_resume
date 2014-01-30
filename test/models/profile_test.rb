@@ -11,15 +11,14 @@ class ProfileTest < ActiveSupport::TestCase
     assert_not_nil @profile.summary
   end
 
-  test "Loads positions" do
-    assert_difference "Position.count", @client.profile_info['positions']['_total'] do
-      Profile.create_from @client
-    end
-  end
-
-  test "Loads projects" do
-    assert_difference "Project.count", @client.profile_info['projects']['_total'] do
-      Profile.create_from @client
+  test "Loads associations" do
+    [
+      { result: "Position.count", expected: @client.profile_info['positions']['_total'] } ,
+      { result: "Project.count",  expected: @client.profile_info['projects']['_total'] }
+    ].each do |child|
+      assert_difference child[:result], child[:expected] do
+        Profile.create_from @client
+      end
     end
   end
 
