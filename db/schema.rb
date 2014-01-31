@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20140130104549) do
     t.datetime "updated_at"
   end
 
+  add_index "positions", ["profile_id"], name: "index_positions_on_profile_id"
+
   create_table "profiles", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"

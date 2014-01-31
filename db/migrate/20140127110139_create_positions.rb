@@ -6,7 +6,7 @@ class CreatePositions < ActiveRecord::Migration
       t.date :end_date
       t.string :title, null: false
       t.text :summary, null: false
-      t.references :profile
+      t.references :profile, index: true
 
       t.timestamps
     end
