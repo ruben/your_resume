@@ -42,4 +42,16 @@
       <% end %>
     </div>
   </section>
+  <section class="section">
+    <h1>Projects</h1>
+    <div class="description">
+      <% @user_profile.projects.each do |project| %>
+          <div class="project">
+            <h1><%= project.name %></h1>
+            <p><%= project.description %></p>
+            <p><%= link_to project.url, project.url, {target: '_blank'} %></p>
+          </div>
+      <% end %>
+    </div>
+  </section>
 </div>

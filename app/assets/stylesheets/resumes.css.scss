@@ -57,7 +57,6 @@
       padding-left: 30px;
       padding-bottom: 40px;
       h1 {
-        float: left;
         text-align: left;
         font-weight: 600;
         font-size: 18px;
@@ -74,8 +73,16 @@
         color: #777;
         margin-bottom: 10px;
       }
-      .period {
+      p {
+        margin-top: 10px;
+      }
+      .period, .project {
         margin-bottom: 30px;
+      }
+      .period {
+        h1 {
+          float: left;
+        }
       }
     }
   }
