@@ -1,10 +1,19 @@
 TODO
 
-* Refactor css
-* Import first_name, last_name
+* LoadsAssociation concern
+* Remove education, position and project test?
+* I18n.enforce_available_locales messages
 * Create complete resume models
-- education
+- educations
 http://developer.linkedin.com/documents/profile-fields#educations
+school_name
+degree
+field_of_study
+start_name
+end_date (null if current )
+
+-languages
+-certifications
 
 * Always retrieves user ruben (api url?)
 * Refactor ResumesControllerTest

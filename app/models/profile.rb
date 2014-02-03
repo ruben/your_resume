@@ -22,10 +22,12 @@ module LoadDataExtension
 end
 
 class Profile < ActiveRecord::Base
+  include LoadAssociationConcern
+
   belongs_to :user, dependent: :destroy
-  has_many :positions, -> { extending LoadDataExtension }
-  has_many :projects, -> { extending LoadDataExtension }
-  has_many :educations, -> { extending LoadDataExtension }
+  loads_association :positions
+  loads_association :projects
+  loads_association :educations
 
   delegate :email, :first_name, :last_name, to: :user
 
@@ -42,16 +44,12 @@ class Profile < ActiveRecord::Base
   end
 
   def load_children profile_info
-    associations.each do |association|
+    self.associations.each do |association|
       load_association association, profile_info
     end
   end
 
   def load_association association, profile_info
     send(association).load_data profile_info[association.to_s]["values"]
-  end
-
-  def associations
-    [:positions, :projects, :educations]
   end
 end
