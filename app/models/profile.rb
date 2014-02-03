@@ -25,6 +25,7 @@ class Profile < ActiveRecord::Base
   belongs_to :user, dependent: :destroy
   has_many :positions, -> { extending LoadDataExtension }
   has_many :projects, -> { extending LoadDataExtension }
+  delegate :email, :first_name, :last_name, to: :user
 
   def self.create_from client
     profile = new
@@ -36,10 +37,6 @@ class Profile < ActiveRecord::Base
     update first_name: profile_info["firstName"], summary: profile_info["summary"]
     load_children profile_info
     self
-  end
-
-  def email
-    user.email
   end
 
   def load_children profile_info
