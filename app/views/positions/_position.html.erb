@@ -1,0 +1,6 @@
+<div class="position">
+  <h1><%= position.company %></h1>
+  <div class="period"><%= [position.start_date, position.end_date].compact.map {|d| I18n.l d}.join(' - ') %></div>
+  <h4><%= position.title %></h4>
+  <p><%= position.summary %></p>
+</div>

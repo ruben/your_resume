@@ -1,13 +1,8 @@
 TODO
 
-* Refactor profile css to match model names
-* Add projects to profile view
-* Index position.profile_id
+* Refactor css
+* Import first_name, last_name
 * Create complete resume models
-- projects
-Try request (with full profile permissions):
-http://developer.linkedin.com/forum/how-can-one-gets-list-projects-user
-https://api.linkedin.com/v1/people/~:(first-name,projects)
 - education
 http://developer.linkedin.com/documents/profile-fields#educations
 

@@ -29,6 +29,19 @@ nav {
   padding: 0 20px;
 }
 
+h1 {
+  text-align: left;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+h4 {
+  font-weight: 500;
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
 #logo {
   color: white;
   line-height: 50px;
@@ -46,7 +59,7 @@ nav {
   text-align: center;
 }
 
-.content {
+#content {
   margin-top: 50px;
 }
 

@@ -38,6 +38,10 @@ class Profile < ActiveRecord::Base
     self
   end
 
+  def email
+    user.email
+  end
+
   def load_children profile_info
     associations.each do |association|
       load_association association, profile_info
