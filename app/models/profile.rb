@@ -25,6 +25,8 @@ class Profile < ActiveRecord::Base
   belongs_to :user, dependent: :destroy
   has_many :positions, -> { extending LoadDataExtension }
   has_many :projects, -> { extending LoadDataExtension }
+  has_many :educations, -> { extending LoadDataExtension }
+
   delegate :email, :first_name, :last_name, to: :user
 
   def self.create_from client
@@ -50,6 +52,6 @@ class Profile < ActiveRecord::Base
   end
 
   def associations
-    [:positions, :projects]
+    [:positions, :projects, :educations]
   end
 end

@@ -1,4 +1,15 @@
 {
+    "educations": {
+        "_total": 1,
+        "values": [{
+            "degree": "Ingeniero Informático",
+            "endDate": {"year": 1992},
+            "fieldOfStudy": "",
+            "id": 178490099,
+            "schoolName": "Universitat Politècnica de Catalunya",
+            "startDate": {"year": 1984}
+        }]
+    },
     "positions": {
         "_total": 5,
         "values": [
