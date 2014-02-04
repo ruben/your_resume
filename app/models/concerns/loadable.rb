@@ -1,5 +1,5 @@
-module LoadDataExtension
-  def load_data data
+module Loadable
+  def load_from data
     self.transaction do
       association.destroy_all
       data.each do |data|

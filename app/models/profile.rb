@@ -27,6 +27,6 @@ class Profile < ActiveRecord::Base
   end
 
   def load_association association, profile_info
-    send(association).load_data profile_info[association.to_s]["values"]
+    send(association).load_from profile_info[association.to_s]["values"]
   end
 end
