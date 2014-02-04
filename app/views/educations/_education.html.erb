@@ -1,0 +1,5 @@
+<div class="education">
+  <h1><%= education.school_name %></h1>
+  <div class="period"><%= [education.start_date, education.end_date].compact.map {|d| I18n.l d}.join(' - ') %></div>
+  <h4><%= education.degree %></h4>
+</div>
