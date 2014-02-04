@@ -23,22 +23,7 @@
       <p><%= @user_profile.summary %></p>
     </div>
   </section>
-  <section class="section">
-    <h1>Experience</h1>
-    <div class="content">
-      <%= render @user_profile.positions %>
-    </div>
-  </section>
-  <section class="section">
-    <h1>Projects</h1>
-    <div class="content">
-      <%= render @user_profile.projects %>
-    </div>
-  </section>
-  <section class="section">
-    <h1>Education</h1>
-    <div class="content">
-      <%= render @user_profile.educations %>
-    </div>
-  </section>
+  <%= render partial: 'section', locals: { header: "Experience", collection: @user_profile.positions } %>
+  <%= render partial: 'section', locals: { header: "Projects", collection: @user_profile.projects } %>
+  <%= render partial: 'section', locals: { header: "Education", collection: @user_profile.educations } %>
 </div>
