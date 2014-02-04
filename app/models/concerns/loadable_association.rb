@@ -1,4 +1,4 @@
-module LoadAssociationConcern
+module LoadableAssociation
   extend ActiveSupport::Concern
 
   included do

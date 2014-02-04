@@ -1,5 +1,5 @@
 class Profile < ActiveRecord::Base
-  include LoadAssociationConcern
+  include LoadableAssociation
 
   belongs_to :user
   loads_association :positions
