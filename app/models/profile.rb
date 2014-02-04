@@ -24,7 +24,7 @@ end
 class Profile < ActiveRecord::Base
   include LoadAssociationConcern
 
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
   loads_association :positions
   loads_association :projects
   loads_association :educations
