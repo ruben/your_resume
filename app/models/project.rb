@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  extend CreateFromData
+  extend CreatableFromJson
 
   def self.create_params data
     {

@@ -1,5 +1,5 @@
 class Position < ActiveRecord::Base
-  extend CreateFromData
+  extend CreatableFromJson
 
   protected
   def self.create_params data

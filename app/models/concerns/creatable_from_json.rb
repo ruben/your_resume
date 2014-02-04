@@ -1,4 +1,4 @@
-module CreateFromData
+module CreatableFromJson
   def new_from_json data
     new create_params data
   end

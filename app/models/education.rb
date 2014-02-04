@@ -1,5 +1,5 @@
 class Education < ActiveRecord::Base
-  extend CreateFromData
+  extend CreatableFromJson
   belongs_to :profile
 
   def self.create_params data
