@@ -1,10 +1,11 @@
 class Project < ActiveRecord::Base
-  def self.new_from_json(project_data)
-    create_params = {
-        description: project_data['description'],
-        name: project_data['name'],
-        url: project_data['url']
+  extend CreateFromData
+
+  def self.create_params data
+    {
+        description: data['description'],
+        name: data['name'],
+        url: data['url']
     }
-    new create_params
   end
 end

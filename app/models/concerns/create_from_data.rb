@@ -8,7 +8,13 @@ module CreateFromData
     raise "Must override create_data function."
   end
 
-  def parse_date(data)
-    Date.new(data['year'], data['month']) if data
+  def parse_date data
+    if data
+      if data['month']
+        Date.new(data['year'], data['month'])
+      else
+        Date.new(data['year'])
+      end
+    end
   end
 end
