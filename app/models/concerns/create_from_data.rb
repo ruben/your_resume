@@ -9,12 +9,8 @@ module CreateFromData
   end
 
   def parse_date data
-    if data
-      if data['month']
-        Date.new(data['year'], data['month'])
-      else
-        Date.new(data['year'])
-      end
-    end
+    return data unless data
+    not_nil_parameters = [data['year'], data['month']].compact
+    Date.new(*not_nil_parameters)
   end
 end
