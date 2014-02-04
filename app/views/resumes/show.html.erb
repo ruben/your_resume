@@ -23,7 +23,7 @@
       <p><%= @user_profile.summary %></p>
     </div>
   </section>
-  <%= render partial: 'section', locals: { header: "Experience", collection: @user_profile.positions } %>
-  <%= render partial: 'section', locals: { header: "Projects", collection: @user_profile.projects } %>
-  <%= render partial: 'section', locals: { header: "Education", collection: @user_profile.educations } %>
+  <%= render_section "Experience", @user_profile.positions %>
+  <%= render_section "Projects", @user_profile.projects %>
+  <%= render_section "Education", @user_profile.educations %>
 </div>
