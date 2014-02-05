@@ -1,14 +1,37 @@
 {
+    "certifications": {
+        "_total": 1,
+        "values": [{
+            "id": 45,
+            "name": "Sun Certified Java Programmer (SCJP)"
+        }]
+    },
     "educations": {
         "_total": 1,
         "values": [{
-            "degree": "Ingeniero Informático",
+            "degree": "5-year Degree in Computer Science",
             "endDate": {"year": 1992},
-            "fieldOfStudy": "",
             "id": 178490099,
             "schoolName": "Universitat Politècnica de Catalunya",
             "startDate": {"year": 1984}
         }]
+    },
+    "languages": {
+        "_total": 3,
+        "values": [
+            {
+                "id": 44,
+                "language": {"name": "English"}
+            },
+            {
+                "id": 66,
+                "language": {"name": "Spanish"}
+            },
+            {
+                "id": 67,
+                "language": {"name": "Catalan"}
+            }
+        ]
     },
     "positions": {
         "_total": 5,

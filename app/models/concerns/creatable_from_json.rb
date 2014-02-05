@@ -5,7 +5,7 @@ module CreatableFromJson
 
   protected
   def create_params data
-    raise "Must override create_data function."
+    raise "Must override self.create_params(data) function."
   end
 
   def parse_date data

@@ -15,7 +15,9 @@ class ProfileTest < ActiveSupport::TestCase
     [
       { result: "Position.count", expected: @client.profile_info['positions']['_total'] },
       { result: "Project.count",  expected: @client.profile_info['projects']['_total'] },
-      { result: "Education.count",  expected: @client.profile_info['educations']['_total'] }
+      { result: "Education.count",  expected: @client.profile_info['educations']['_total'] },
+      { result: "Certification.count",  expected: @client.profile_info['certifications']['_total'] },
+      { result: "Language.count",  expected: @client.profile_info['languages']['_total'] }
     ].each do |child|
       assert_difference child[:result], child[:expected] do
         Profile.create_from @client

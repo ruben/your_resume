@@ -5,6 +5,8 @@ class Profile < ActiveRecord::Base
   loads_association :positions
   loads_association :projects
   loads_association :educations
+  loads_association :certifications
+  loads_association :languages
 
   delegate :email, :first_name, :last_name, to: :user
 

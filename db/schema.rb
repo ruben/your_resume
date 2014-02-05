@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140203094722) do
+ActiveRecord::Schema.define(version: 20140205092723) do
+
+  create_table "certifications", force: true do |t|
+    t.string   "name"
+    t.integer  "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "certifications", ["profile_id"], name: "index_certifications_on_profile_id"
 
   create_table "educations", force: true do |t|
     t.string   "school_name",    null: false
@@ -25,6 +34,15 @@ ActiveRecord::Schema.define(version: 20140203094722) do
   end
 
   add_index "educations", ["profile_id"], name: "index_educations_on_profile_id"
+
+  create_table "languages", force: true do |t|
+    t.string   "name"
+    t.integer  "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "languages", ["profile_id"], name: "index_languages_on_profile_id"
 
   create_table "positions", force: true do |t|
     t.string   "company",    null: false
