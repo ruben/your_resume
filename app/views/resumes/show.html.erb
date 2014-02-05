@@ -1,6 +1,6 @@
 <div class="resume-header">
   <h1>
-    Rubén Gil
+    <%= @profile.first_name %><%= @profile.last_name %>
   </h1>
 </div>
 <div class="tools">
@@ -11,8 +11,7 @@
     <section class="contact">
       <p class="name"><%= @profile.first_name %> <%= @profile.last_name %></p>
       <p class="email"><%= @profile.email %></p>
-      <p class="phone">34620901135</p>
-      <p class="phone">34936331111</p>
+      <p class="phone">profile_phone_number</p>
     </section>
   </section>
   <section class="picture">
