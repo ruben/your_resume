@@ -14,7 +14,7 @@ module LinkedIn
     end
 
     test "fetches profile info" do
-      @client.expects(:get_people).with('summary,positions,projects,educations,certifications,languages').returns(File.read 'test/fixtures/profiles/ruben.json')
+      @client.expects(:get_people).with('summary,positions,projects,educations,certifications:(name,authority),languages').returns(File.read 'test/fixtures/profiles/ruben.json')
       profile_info = @client.profile_info
       assert_not_nil profile_info
     end

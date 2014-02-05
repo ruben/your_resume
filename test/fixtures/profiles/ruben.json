@@ -2,7 +2,7 @@
     "certifications": {
         "_total": 1,
         "values": [{
-            "id": 45,
+            "authority": {"name": "Sun Microsystems"},
             "name": "Sun Certified Java Programmer (SCJP)"
         }]
     },

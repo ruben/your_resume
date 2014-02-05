@@ -3,7 +3,8 @@ class Certification < ActiveRecord::Base
 
   def self.create_params data
     {
-        name: data['name']
+        name: data['name'],
+        authority: data['authority']['name']
     }
   end
 end

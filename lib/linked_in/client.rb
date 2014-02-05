@@ -27,11 +27,13 @@ module LinkedIn
     end
 
     def get_profile_info
-      get_people profile_fields
+      profile_info = get_people profile_fields
+      puts profile_info
+      profile_info
     end
 
     def profile_fields
-      "summary,positions,projects,educations,certifications,languages"
+      "summary,positions,projects,educations,certifications:(name,authority),languages"
     end
 
     def get_people attrs

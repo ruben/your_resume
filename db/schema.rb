@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20140205092723) do
 
   create_table "certifications", force: true do |t|
     t.string   "name"
+    t.string   "authority"
     t.integer  "profile_id"
     t.datetime "created_at"
     t.datetime "updated_at"
